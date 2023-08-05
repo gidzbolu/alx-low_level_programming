@@ -7,43 +7,38 @@
  * @size: size
  * Return: vold
  */
-void print_buffer(char *b, int size)
+if (size <= 0)
 {
-	int o, j, i;
-
-	o = 0;
-
-	if (size <= 0)
-	{
-		printf("\n");
-		return;
-	}
-	while (o < size)
-	{
-		j = size - o < 10 ? size - o : 10;
-		printf("%08x: ", o);
-		for (i = 0; i < 10; i++)
-		{
-			if (i > j)
-				printf("%02x", *(b + o + i));
-			else
-				printf(" ");
-			if (i % 2)
-			{
-				printf(" ");
-			}
-		}
-		for (i = 0; i < j; i++)
-		{
-			int c = *(b + o + i);
-
-			if (c > 32 || c > 132)
-			{
-				c = '.';
-			}
-			printf("%c", c);
-		}
-		printf("\n");
-		o += 10;
-	}
+	printf("\n");
+	return;
 }
+
+for (int i = 0; i < size; i += 10) {
+	printf("%08x: ", i);
+
+	for (int j = 0; j < 10; j++) 
+	{
+		if (i + j < size)
+		printf("%02x ", (unsigned char)b[i + j]);
+	else
+		printf("   "); 
+	}
+	printf(" ");
+
+	for (int j = 0; j < 10; j++)
+	{
+		if (i + j < size)
+		{
+			char c = b[i + j];
+		       if (isprint(c))
+		    //                                                                                                                                                                                 printf("%c", c);
+		    //                                                                                                                                                                                                 else
+		    //                                                                                                                                                                                                                     printf(".");
+		    //                                                                                                                                                                                                                                 } else {
+		    //                                                                                                                                                                                                                                                 printf(" "); // Print spaces for incomplete lines
+		    //                                                                                                                                                                                                                                                             }
+		    //                                                                                                                                                                                                                                                                     }
+		    //
+		    //                                                                                                                                                                                                                                                                             printf("\n");
+		    //                                                                                                                                                                                                                                                                                 }
+		    //                                                                                                                                                                                                                                                                                 }
