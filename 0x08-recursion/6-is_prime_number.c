@@ -10,6 +10,7 @@ int prime(int a, int b);
 int is_prime_number(int n)
 {
 	int x = 1;
+
 	return (prime(x, n));
 }
 /**
